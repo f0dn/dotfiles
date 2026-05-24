@@ -1,0 +1,149 @@
+# Config version for compatibility and deprecations
+# Fallback value (if you omit the key): config-version = 1
+config-version = 2
+
+# You can use it to add commands that run after AeroSpace startup.
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = [
+    'exec-and-forget brew services start sketchybar',
+]
+
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+start-at-login = true
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = true
+
+# List of workspaces that should stay alive even when they contain no windows
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+# A callback that runs every time binding mode changes
+on-mode-changed = [
+    'exec-and-forget sketchybar --trigger aerospace_mode_change CURRENT_MODE=$(aerospace list-modes --current)'
+]
+
+# Possible values: (qwerty|dvorak|colemak)
+[key-mapping]
+    preset = 'qwerty'
+
+# 'main' binding mode declaration
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# 'main' binding mode must be always presented
+# Fallback value (if you omit the key): mode.main.binding = {}
+[mode.main.binding]
+
+    # All possible keys:
+    # - Letters.        a, b, c, ..., z
+    # - Numbers.        0, 1, 2, ..., 9
+    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+    # - F-keys.         f1, f2, ..., f20
+    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
+    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
+    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
+    #                   sectionSign (ISO keyboards only, european keyboards only)
+    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+    #                   keypadMinus, keypadMultiply, keypadPlus
+    # - Arrows.         left, down, up, right
+
+    # All possible modifiers: cmd, alt, ctrl, shift
+
+    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
+    # You can uncomment the following lines to open up terminal with alt + enter shortcut
+    # (like in i3)
+    # alt-enter = '''exec-and-forget osascript -e '
+    # tell application "Terminal"
+    #     do script
+    #     activate
+    # end tell'
+    # '''
+
+    alt-b = 'layout h_tiles'
+    alt-v = 'layout v_tiles'
+
+    alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+    alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    alt-f = 'fullscreen'
+
+    alt-shift-f = 'layout floating tiling'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
+
+    alt-cmd-shift-h = 'move-workspace-to-monitor left'
+    alt-cmd-shift-j = 'move-workspace-to-monitor down'
+    alt-cmd-shift-k = 'move-workspace-to-monitor up'
+    alt-cmd-shift-l = 'move-workspace-to-monitor right'
+
+    alt-s = 'exec-and-forget screencapture -icx'
+    alt-shift-s = 'exec-and-forget screencapture -Uix ~/Downloads/screenshot.png'
+
+    alt-semicolon = 'mode service'
+    alt-r = 'mode resize'
+
+    alt-shift-q = 'close --quit-if-last-window'
+    cmd-q = []
+
+    alt-shift-c = [
+        'reload-config',
+        'exec-and-forget sketchybar --reload',
+    ]
+
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'secondary'
+
+[mode.resize.binding]
+    alt-h = 'resize width -10'
+    alt-j = 'resize height +10'
+    alt-k = 'resize height -10'
+    alt-l = 'resize width +10'
+
+    alt-r = 'mode main'
+
+[mode.service.binding]
+    # quick fix for ghost windows
+    alt-f = """exec-and-forget aerospace list-windows --all --json \
+    | jq -r '.[] | select(."window-title"=="") | ."window-id"' \
+    | xargs -n1 aerospace close --window-id && aerospace mode main"""
+
+    alt-q = 'exec-and-forget /Users/there/.local/bin/rice disable'
+
+    alt-semicolon = 'mode main'

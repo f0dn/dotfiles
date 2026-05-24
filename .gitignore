@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!aerospace/
+!karabiner/
+karabiner/*
+!karabiner/karabiner.json
+!kitty/
+!sketchybar/
+!tmux/
+tmux/plugins/
