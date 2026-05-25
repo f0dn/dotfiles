@@ -1,5 +1,7 @@
 /*
 !.gitignore
+!other/
+
 !aerospace/
 !karabiner/
 karabiner/*
@@ -8,3 +10,4 @@ karabiner/*
 !sketchybar/
 !tmux/
 tmux/plugins/
+
