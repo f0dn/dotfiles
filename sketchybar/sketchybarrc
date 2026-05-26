@@ -8,5 +8,6 @@ source "$CONFIG_DIR/items/spaces.sh"
 source "$CONFIG_DIR/items/mode.sh"
 
 # right
+source "$CONFIG_DIR/items/battery.sh"
 source "$CONFIG_DIR/items/clock.sh"
 source "$CONFIG_DIR/items/music.sh"

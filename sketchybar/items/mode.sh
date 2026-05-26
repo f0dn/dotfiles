@@ -5,5 +5,5 @@ sketchybar --add event aerospace_mode_change \
            --subscribe mode aerospace_mode_change \
            --set mode \
                  script="$CONFIG_DIR/plugins/mode.sh" \
-                 label.color=$RED \
+                 label.color=$BLUE \
            --trigger aerospace_mode_change
