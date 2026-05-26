@@ -10,4 +10,6 @@ sketchybar --add item battery right \
                  background.drawing=off \
                  background.border_color=0x00000000 \
                  background.border_width=0 \
-                 update_freq=1
+                 update_freq=120
+
+source "$CONFIG_DIR/plugins/battery.sh"

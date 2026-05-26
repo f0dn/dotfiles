@@ -5,3 +5,5 @@ sketchybar --add item clock right \
            --set clock \
                  script="$CONFIG_DIR/plugins/clock.sh" \
                  update_freq=1
+
+source "$CONFIG_DIR/plugins/clock.sh"
