@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sketchybar --set clock label="$(date '+%a %d. %b') $(date '+%H:%M')"
+sketchybar --set clock label="$(date '+%a %b %d') $(date '+%H:%M')"
