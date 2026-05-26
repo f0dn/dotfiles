@@ -6,9 +6,7 @@ source "$CONFIG_DIR/bar.sh"
 # left
 source "$CONFIG_DIR/items/spaces.sh"
 source "$CONFIG_DIR/items/mode.sh"
-source "$CONFIG_DIR/items/left.sh"
 
 # right
 source "$CONFIG_DIR/items/clock.sh"
 source "$CONFIG_DIR/items/music.sh"
-source "$CONFIG_DIR/items/right.sh"

@@ -9,7 +9,10 @@ for sid in $(aerospace list-workspaces --all); do
                      label="$sid" \
                      script="$CONFIG_DIR/plugins/spaces.sh $sid" \
                      drawing=off \
-                     background.drawing=off
+                     background.drawing=off \
+                     label.highlight_color=$RED \
+                     padding_left=0 \
+                     padding_right=0
 done
 
 sketchybar --add bracket spaces '/space\..*/' \

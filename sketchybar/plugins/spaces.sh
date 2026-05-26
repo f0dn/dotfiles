@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/colors.sh"
+
 sid=$1
+focused=$(aerospace list-workspaces --focused)
 
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
-    if [ "$sid" = "$FOCUSED_WORKSPACE" ]; then
-        sketchybar --set $NAME background.drawing=on \
-                               background.color=$RED
+    if [ "$sid" = "$focused" ]; then
+        sketchybar --set $NAME label.highlight=on
     else
-        sketchybar --set $NAME background.drawing=off
+        sketchybar --set $NAME label.highlight=off
     fi
     
     all_workspaces=$(aerospace list-workspaces --all)
     empty_workspaces=$(aerospace list-workspaces --monitor all --empty)
     empty=false
     for empty_sid in $empty_workspaces; do
-        if [ "$sid" = "$empty_sid" ] && [ "$sid" != "$FOCUSED_WORKSPACE" ]; then
+        if [ "$sid" = "$empty_sid" ] && [ "$sid" != "$focused" ]; then
             empty=true
             break
         fi
