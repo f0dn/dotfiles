@@ -1,0 +1,8 @@
+#!/bin/bash
+
+showing=$(sketchybar --query music | jq -r .popup.drawing)
+if [ "$showing" == "on" ]; then
+    sketchybar --set music popup.drawing=off
+else
+    sketchybar --set music popup.drawing=on
+fi

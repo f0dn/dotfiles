@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function enable_rice {
+    aerospace enable on --fail-if-noop
+    defaults write com.apple.dock autohide-delay -float 100000 && killall Dock
+    brew services start sketchybar
+}
+
+function disable_rice {
+    defaults write com.apple.dock autohide-delay -float 1
+    defaults delete com.apple.dock autohide-delay && killall Dock
+    aerospace mode main
+    aerospace enable off --fail-if-noop
+    brew services stop sketchybar
+}
+
+if [[ $1 == "enable" ]]; then
+    enable_rice
+elif [[ $1 == "disable" ]]; then
+    disable_rice
+else
+    echo "unknown option"
+fi

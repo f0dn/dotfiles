@@ -29,6 +29,9 @@ on-mode-changed = [
     'exec-and-forget sketchybar --trigger aerospace_mode_change'
 ]
 
+[exec.env-vars]
+    PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:~/.config/other/bin:${PATH}'
+
 # Possible values: (qwerty|dvorak|colemak)
 [key-mapping]
     preset = 'qwerty'
@@ -111,10 +114,12 @@ on-mode-changed = [
     alt-cmd-shift-l = 'move-workspace-to-monitor right'
 
     alt-s = 'exec-and-forget screencapture -icx'
-    alt-shift-s = 'exec-and-forget screencapture -Uix ~/Downloads/screenshot.png'
+    alt-shift-s = 'exec-and-forget screencapture -Uix .'
 
     alt-semicolon = 'mode service'
     alt-r = 'mode resize'
+
+    alt-m = 'exec-and-forget music-info-toggle'
 
     alt-shift-q = 'close --quit-if-last-window'
     cmd-q = []
@@ -144,6 +149,6 @@ on-mode-changed = [
     | jq -r '.[] | select(."window-title"=="") | ."window-id"' \
     | xargs -n1 aerospace close --window-id && aerospace mode main"""
 
-    alt-q = 'exec-and-forget /Users/there/.local/bin/rice disable'
+    alt-q = 'exec-and-forget rice disable'
 
     alt-semicolon = 'mode main'
