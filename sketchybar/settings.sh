@@ -6,3 +6,4 @@ HEIGHT=25
 BORDER_WIDTH=2 
 FONT_SIZE=15
 PADDING=4
+ARTWORK_FILE=/tmp/sketchybar_music_artwork
