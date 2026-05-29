@@ -1,13 +1,14 @@
 /*
 !.gitignore
-!other/
+!.config/
+.config/*
+!.config/other/
 
-!aerospace/
-!karabiner/
-karabiner/*
-!karabiner/karabiner.json
-!kitty/
-!sketchybar/
-!tmux/
-tmux/plugins/
-
+!.config/aerospace/
+!.config/karabiner/
+.config/karabiner/*
+!.config/karabiner/karabiner.json
+!.config/kitty/
+!.config/sketchybar/
+!.config/tmux/
+.config/tmux/plugins/
