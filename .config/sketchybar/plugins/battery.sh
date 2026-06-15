@@ -12,11 +12,13 @@ fi
 
 color=$TEXT
 case ${percentage} in
-    9[0-9]|100) icon=""
+    100) icon=""
     ;;
-    [6-8][0-9]) icon=""
+    [8-9][0-9]) icon=""
     ;;
-    [3-5][0-9]) icon=""
+    [5-7][0-9]) icon=""
+    ;;
+    [3-4][0-9]) icon=""
     ;;
     [1-2][0-9]) icon=""; color=$YELLOW
     ;;
