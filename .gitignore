@@ -5,6 +5,7 @@
 !.config/other/
 
 !.config/aerospace/
+!.config/clangd/
 !.config/karabiner/
 .config/karabiner/*
 !.config/karabiner/karabiner.json

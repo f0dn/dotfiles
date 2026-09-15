@@ -132,8 +132,14 @@ on-mode-changed = [
 [workspace-to-monitor-force-assignment]
     1 = 'main'
     2 = 'main'
-    3 = 'main'
+    3 = 'secondary'
     4 = 'secondary'
+    5 = 'secondary'
+    6 = 'secondary'
+    7 = 'secondary'
+    8 = 'secondary'
+    9 = 'secondary'
+    10 = 'secondary'
 
 [mode.resize.binding]
     alt-h = 'resize width -10'
