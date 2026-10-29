@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    {
+      "package": "opencode-oauth@0.1.0",
+      "options": {
+        "provider": "ollama",
+        "clientID": "{env:OPENCODE_CLIENT_ID}",
+        "authorizationEndpoint": "{env:AUTHENTIK_URL}/application/o/authorize/",
+        "tokenEndpoint": "{env:AUTHENTIK_URL}/application/o/token/",
+        "scope": "openid offline_access",
+        "port": 51151
+      }
+    }
+  ],
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "{env:OLLAMA_URL}/v1"
+      },
+      "models": {
+        "qwen3-coder:30b": { "name": "qwen" }
+      }
+    }
+  }
+}
